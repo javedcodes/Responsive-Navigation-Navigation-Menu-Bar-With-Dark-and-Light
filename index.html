@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- === Coded by JV Codes | www.jvcodes.com === -->
+<html lang="en">
+<head>
+    <!-- Meta tags for character encoding and viewport settings for responsive design -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Link to Boxicons CDN for icons used in the design -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Title of the webpage displayed in the browser tab -->
+    <title>Navigation Menu Bar With Dark and Light</title>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="nav-bar">
+            <!-- Sidebar menu icon for opening the sidebar -->
+            <i class='bx bx-menu sidebarOpen'></i>
+            
+            <!-- Website logo -->
+            <span class="logo navLogo">
+                <a href="#">Pets Pro Guide</a>
+            </span>
+
+            <!-- Menu container -->
+            <div class="menu">
+                <!-- Logo and close button inside the toggled sidebar menu -->
+                <div class="logo-toggle">
+                    <!-- Logo inside the sidebar -->
+                    <span class="logo">
+                        <a href="#">Pets Pro Guide</a>
+                    </span>
+                    <!-- Close button for the sidebar -->
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Pets Life</a></li>
+                    <li><a href="#">Pets Food</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Dark/Light Mode Toggle and Search Box -->
+            <div class="darkLight-searchBox">
+                
+                <!-- Dark and light mode toggle icons -->
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i> <!-- Moon icon for dark mode -->
+                    <i class='bx bx-sun sun'></i>   <!-- Sun icon for light mode -->
+                </div>
+
+                <!-- Search Box -->
+                <div class="searchBox">
+                    <!-- Toggle buttons for search box (open/close) -->
+                    <div class="searchToggle">
+                        <i class='bx bx-x cancel'></i>    <!-- Close icon for search box -->
+                        <i class='bx bx-search search'></i> <!-- Search icon to open search box -->
+                    </div>
+
+                    <!-- Search input field -->
+                    <div class="search-field">
+                        <input type="text" placeholder="Search..."> <!-- Search input box -->
+                        <i class='bx bx-search'></i> <!-- Search icon next to input field -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- External JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>

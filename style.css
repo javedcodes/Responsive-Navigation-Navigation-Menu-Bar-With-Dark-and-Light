@@ -1,0 +1,327 @@
+/* Importing Google Font 'Poppins' with different font weights */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Global Reset for margin, padding, box-sizing, font-family, and transition */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.4s ease;
+}
+
+/* Defining root variables for easy color theme management */
+:root{
+    --body-color: #E4E9F7;
+    --nav-color: #df3805;
+    --side-nav: #010718;
+    --text-color: #FFF;
+    --search-bar: #F2F2F2;
+    --search-text: #010718;
+}
+
+/* Body style in light mode */
+body{
+    height: 100vh;
+    background-color: var(--body-color);
+}
+
+/* Body style in dark mode */
+body.dark{
+    --body-color: #18191A;
+    --nav-color: #242526;
+    --side-nav: #242526;
+    --text-color: #CCC;
+    --search-bar: #242526;
+}
+
+/* Navigation bar styling */
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    background-color: var(--nav-color);
+    z-index: 100;
+}
+
+/* Navigation bar styling in dark mode */
+body.dark nav{
+    border: 1px solid #393838;
+}
+
+/* Inner nav-bar container for content alignment */
+nav .nav-bar{
+    position: relative;
+    height: 100%;
+    max-width: 1000px;
+    width: 100%;
+    background-color: var(--nav-color);
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Menu icon in mobile view (hidden by default) */
+nav .nav-bar .sidebarOpen{
+    color: var(--text-color);
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+}
+
+/* Logo text styling */
+nav .nav-bar .logo a{
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+/* Hidden logo toggle (for mobile) */
+.menu .logo-toggle{
+    display: none;
+}
+
+/* Styling navigation links */
+.nav-bar .nav-links{
+    display: flex;
+    align-items: center;
+}
+
+/* Styling individual list items in the navigation */
+.nav-bar .nav-links li{
+    margin: 0 5px;
+    list-style: none;
+}
+
+/* Styling the anchor tags for nav links */
+.nav-links li a{
+    position: relative;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px;
+}
+
+/* Adding a small circle on hover */
+.nav-links li a::before{
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Circle becomes visible on hover */
+.nav-links li:hover a::before{
+    opacity: 1;
+}
+
+/* Container for dark/light mode toggle and search box */
+.nav-bar .darkLight-searchBox{
+    display: flex;
+    align-items: center;
+}
+
+/* Common styling for dark/light mode toggle and search toggle */
+.darkLight-searchBox .dark-light,
+.darkLight-searchBox .searchToggle{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+}
+
+/* Styling icons for dark/light mode and search toggle */
+.dark-light i,
+.searchToggle i{
+    position: absolute;
+    color: var(--text-color);
+    font-size: 22px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Sun icon hidden by default (shown when activated) */
+.dark-light i.sun{
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Display sun icon and hide moon icon when dark mode is active */
+.dark-light.active i.sun{
+    opacity: 1;
+    pointer-events: auto;
+}
+.dark-light.active i.moon{
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Cancel icon hidden by default (shown when search is active) */
+.searchToggle i.cancel{
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Show cancel icon when search is active */
+.searchToggle.active i.cancel{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Hide search icon when search is active */
+.searchToggle.active i.search{
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Search box container */
+.searchBox{
+    position: relative;
+}
+
+/* Hidden search field (shown when search is active) */
+.searchBox .search-field{
+    position: absolute;
+    bottom: -85px;
+    right: 5px;
+    height: 50px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    background-color: var(--nav-color);
+    padding: 3px;
+    border-radius: 6px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Show search field when active */
+.searchToggle.active ~ .search-field{
+    bottom: -74px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Arrow shape at the top of the search field */
+.search-field::before{
+    content: '';
+    position: absolute;
+    right: 14px;
+    top: -4px;
+    height: 12px;
+    width: 12px;
+    background-color: var(--nav-color);
+    transform: rotate(-45deg);
+    z-index: -1;
+}
+
+/* Styling the search input field */
+.search-field input{
+    height: 100%;
+    width: 100%;
+    padding: 0 45px 0 15px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--search-text);
+    background-color: var(--search-bar);
+}
+
+/* Dark mode search input text color */
+body.dark .search-field input{
+    color: var(--text-color);
+}
+
+/* Search icon inside the search field */
+.search-field i{
+    position: absolute;
+    color: var(--nav-color);
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* Dark mode search icon color */
+body.dark .search-field i{
+    color: var(--text-color);
+}
+
+/* Media query for responsive adjustments */
+@media (max-width: 790px) {
+    /* Show sidebar menu icon on smaller screens */
+    nav .nav-bar .sidebarOpen{
+        display: block;
+    }
+
+    /* Full-screen menu for mobile view */
+    .menu{
+        position: fixed;
+        height: 100%;
+        width: 320px;
+        left: -100%;
+        top: 0;
+        padding: 20px;
+        background-color: var(--side-nav);
+        z-index: 100;
+        transition: all 0.4s ease;
+    }
+
+    /* Menu slides in when active */
+    nav.active .menu{
+        left: 0;
+    }
+
+    /* Hide logo text when menu is active */
+    nav.active .nav-bar .navLogo a{
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Toggle between logo and close icon */
+    .menu .logo-toggle{
+        display: block;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* Close icon in the menu */
+    .logo-toggle .siderbarClose{
+        color: var(--text-color);
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Stack nav links vertically in mobile view */
+    .nav-bar .nav-links{
+        flex-direction: column;
+        padding-top: 30px;
+    }
+
+    /* Add spacing to nav links in mobile view */
+    .nav-links li a{
+        display: block;
+        margin-top: 20px;
+    }
+}
